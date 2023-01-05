@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curriculum extends Model
 {
+    protected $table = 'curriculums';
     use HasFactory;
 
     //Curriculum has homeworks
