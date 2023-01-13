@@ -5,7 +5,7 @@
             <button type="submit" class="lms-btn">Search</button>
         </div>
     </form>
-    
+
     @if (count($leads) > 0)
         <form wire:submit.prevent="admit">
             <div class="mb-4">
@@ -31,7 +31,7 @@
             @if (!empty($selectedCourse))
                 <p class="mb-4">Price: ${{ number_format($selectedCourse->price, 2) }}</p>
                 <div class="mb-4">
-                    <input wire:model.lazy="payment" type="number" step=".01" class="lms-input"
+                    <input wire:model.lazy="payment" type="number" step=".01" max="{{number_format($selectedCourse->price)}}" class="lms-input"
                         placeholder="Pay Now">
                 </div>
 
