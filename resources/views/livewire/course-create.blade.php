@@ -14,12 +14,12 @@
         'name' => 'description',
         'label' => 'Description',
         'type' => 'textarea',
-        'placeholder' => 'Enter name',
+        'placeholder' => 'Enter description',
         'required' => 'required',
         ])
     </div>
 
-    {{-- <div class="mb-6">
+    <div class="mb-6">
         @include('components.form-field', [
         'name' => 'price',
         'label' => 'Price',
@@ -67,5 +67,5 @@
 
 
 
-    @include('components.wire-loading-btn') --}}
+    @include('components.wire-loading-btn')
 </form>
