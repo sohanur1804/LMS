@@ -6,5 +6,15 @@ use Illuminate\Http\Request;
 
 class CurriculumController extends Controller
 {
-    //
+    public function show($id) {
+        return view('course.curriculum.show', [
+            'id' => $id,
+        ]);
+    }
+
+    public function edit($id) {
+        return view('course.curriculum.edit', [
+            'id' => $id,
+        ]);
+    }
 }
