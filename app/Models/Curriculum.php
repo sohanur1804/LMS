@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Attendance;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,5 +34,9 @@ class Curriculum extends Model
 
     public function course() {
         return $this->belongsTo(Course::class);
+    }
+
+    public function presentStudents() {
+        return Attendance::where('curriculum_id', $this->id)->count();
     }
 }
