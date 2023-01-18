@@ -11,9 +11,11 @@ class CourseShow extends Component
     public $course_id;
     public function render()
     {
-        $course = Course::findOrFail($this->course_id)->with('curriculums')->first();
+        $course = Course::where('id', $this->course_id)->first();
+        $curriculums = Curriculum::where('course_id', $this->course_id)->get();
         return view('livewire.course-show', [
-            'course' => $course
+            'course' => $course,
+            'curriculums' => $curriculums
         ]);
     }
 

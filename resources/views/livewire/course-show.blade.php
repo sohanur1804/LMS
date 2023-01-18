@@ -11,7 +11,7 @@
             <th class="border px-4 py-2 text-left">Actions</th>
         </tr>
 
-        @foreach ($course->curriculums as $class)
+        @foreach ($curriculums as $class)
             <tr>
                 <td class="border px-4 py-2">{{$class->name}}</td>
                 <td class="border px-4 py-2">

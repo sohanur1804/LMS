@@ -46,7 +46,7 @@ class CourseCreate extends Component
         $this->validate();
         $course = Course::create([
             'name' => $this->name,
-            // 'slug' => str_replace(' ', '-', $this->slug),
+            'slug' => str_replace(' ', '-', $this->slug),
             'description' => $this->description,
             'price' => $this->price,
             'user_id' => Auth::user()->id

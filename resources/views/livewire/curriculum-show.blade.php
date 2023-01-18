@@ -11,7 +11,7 @@
         <tr>
             <th class="border px-4 py-2 text-left">Name</th>
             <th class="border px-4 py-2 text-left">Email</th>
-            <th class="border px-4 py-2 text-left">Attendance</th>
+            <th class="border px-4 py-2 text-center">Attendance</th>
         </tr>
 
         @foreach ($curriculum->course->students as $student)
