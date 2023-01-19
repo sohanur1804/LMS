@@ -5,6 +5,8 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LeadController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -43,6 +45,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('course', CourseController::class);
     Route::resource('class', CurriculumController::class);
+    Route::resource('quiz', QuizController::class);
+    Route::resource('question', QuestionController::class);
 });
 
 require __DIR__.'/auth.php';
