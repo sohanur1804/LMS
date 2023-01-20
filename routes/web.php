@@ -45,8 +45,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('course', CourseController::class);
     Route::resource('class', CurriculumController::class);
-    Route::resource('quiz', QuizController::class);
-    Route::resource('question', QuestionController::class);
+    Route::resource('/quiz', QuizController::class);
+    Route::resource('/question', QuestionController::class);
 
     Route::get('/quiz-show/{id}', [QuizController::class, 'quizShow'])->name('quiz-show');
 });

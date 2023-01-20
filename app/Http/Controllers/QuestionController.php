@@ -13,4 +13,11 @@ class QuestionController extends Controller
     public function create() {
         return view('question.create');
     }
+
+    public function edit($id)
+    {
+        return view("question.edit", [
+            'question_id' => $id
+        ]);
+    }
 }
