@@ -12,8 +12,9 @@ class QuizEdit extends Component
 
     public function render()
     {
+        $questions = Question::select(['id', 'name'])->whereNotIn('id', $this->quiz->questions->pluck('id')->toArray())->get();
         return view('livewire.quiz-edit', [
-            'questions' => Question::select(['id', 'name'])->get()
+            'questions' => $questions
         ]);
     }
 
@@ -22,5 +23,7 @@ class QuizEdit extends Component
         $this->question_id = '';
 
         flash()->addSuccess('Question added successfully');
+
+        return redirect(route('quiz.show', $this->quiz->id));
     }
 }

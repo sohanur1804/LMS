@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('class', CurriculumController::class);
     Route::resource('quiz', QuizController::class);
     Route::resource('question', QuestionController::class);
+
+    Route::get('/quiz-show/{id}', [QuizController::class, 'quizShow'])->name('quiz-show');
 });
 
 require __DIR__.'/auth.php';
