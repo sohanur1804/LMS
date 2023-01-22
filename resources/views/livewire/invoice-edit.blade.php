@@ -18,6 +18,19 @@
                 <td class="lms-cell-border text-right">${{ number_format($item->price * $item->quantity, 2) }}</td>
             </tr>
         @endforeach
+
+        <tr>
+            <td colspan="3" class="lms-cell-border text-right">Subtotal</td>
+            <td class="lms-cell-border text-right">${{number_format($invoice->amount()['total'], 2)}}</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="lms-cell-border text-right">Paid</td>
+            <td class="lms-cell-border text-right">- ${{number_format($invoice->amount()['paid'], 2)}}</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="lms-cell-border text-right">Due</td>
+            <td class="lms-cell-border text-right">${{number_format($invoice->amount()['due'], 2)}}</td>
+        </tr>
     </table>
 
     @if ($enableAddItem)
@@ -60,4 +73,11 @@
     @else
         <button wire:click="addNewItem" class="lms-btn">Add</button>
     @endif
+
+    <h3 class="font-bold text-lg mb-2">Payments</h3>
+    <ul class="mb-4">
+        @foreach($invoice->payments as $payment)
+        <li>{{date('F j, Y - g:i:a', strtotime($payment->created_at))}} - ${{number_format($payment->amount, 2)}}</li>
+        @endforeach
+    </ul>
 </div>

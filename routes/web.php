@@ -8,6 +8,7 @@ use App\Http\Controllers\LeadController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/question', QuestionController::class);
 
     Route::get('/quiz-show/{id}', [QuizController::class, 'quizShow'])->name('quiz-show');
+    Route::post('/stripe-payment', [StripePaymentController::class, 'stripePayment'])->name('stripe-payment');
 });
 
 require __DIR__.'/auth.php';
